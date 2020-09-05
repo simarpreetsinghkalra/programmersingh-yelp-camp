@@ -8,8 +8,8 @@
   "main": "build/app.js",
   "scripts": {
     "tsc": "tsc",
-    "start": "node build/app.js",
-    "mybuild": "build.bat",
+    "start": "node app.js",
+    "mybuild": "tsc && npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "simarpreetsinghkalra",

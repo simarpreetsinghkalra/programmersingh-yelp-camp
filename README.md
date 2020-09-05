@@ -3,14 +3,11 @@
 
 1. Clone Repo
 2. Run command `npm i`
-3. For Windows:
-    - Run `npm start`
-   For Linux/Mac:
-    - I have not made scripts yet.
+3. Run `npm run mybuild`
 
 
 
-## DAY 1
+## DAY 1 (2020/09/05)
 - Added following pages
     + Home
     + CampGround Listing
