@@ -31,6 +31,6 @@ app.get('/campgrounds/new', (req, res) => {
     res.render('new.ejs');
 });
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log('Server is up on http://localhost:3000/');
 })
