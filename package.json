@@ -1,7 +1,10 @@
 {
-  "name": "yelpcamp",
+  "name": "programmmersingh-yelp-camp",
   "version": "1.0.0",
   "description": "just a demo prject",
+  "engines": {
+    "node": "12.x"
+  },
   "main": "build/app.js",
   "scripts": {
     "tsc": "tsc",
