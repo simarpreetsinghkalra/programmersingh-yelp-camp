@@ -9,7 +9,7 @@
   "scripts": {
     "tsc": "tsc",
     "start": "node build/app.js",
-    "build": "build.bat",
+    "mybuild": "build.bat",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "simarpreetsinghkalra",
