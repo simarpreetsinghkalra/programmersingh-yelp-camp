@@ -1,0 +1,22 @@
+{
+  "name": "yelpcamp",
+  "version": "1.0.0",
+  "description": "just a demo prject",
+  "main": "build/app.js",
+  "scripts": {
+    "tsc": "tsc",
+    "start": "build.bat",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "simarpreetsinghkalra",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.8",
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.2"
+  }
+}
