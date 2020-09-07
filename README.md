@@ -29,12 +29,12 @@ LIVE DEMO: https://programmersingh-yelp-camp.herokuapp.com/
 
 #### RESTFUL ROUTES
 
-**name**    **url**             **verb**   **description**
-=======================================================================
-INDEX       /campgrounds        GET         DisplayList of grounds
-NEW         /campgrounds/new    GET         Displayform to add ground
-CREATE      /campgrounds        POST        Add newground to DB
-SHOW        /campgrounds/:id    GET         Displayground details by id
+|name       |url                |verb       |description                |
+|-----------|-------------------|-----------|---------------------------|
+|INDEX      |/campgrounds       |GET        |DisplayList of grounds     |
+|NEW        |/campgrounds/new   |GET        |Displayform to add ground  |
+|CREATE     |/campgrounds       |POST       |Add newground to DB        |
+|SHOW       |/campgrounds/:id   |GET        |Displayground details by id|
 
 
 
