@@ -25,13 +25,16 @@ LIVE DEMO: https://programmersingh-yelp-camp.herokuapp.com/
 ## DAY 3
 - Added MongoDB suppport in YelpCamp Project
 - Added page Show Campground (campgrounds/:id) to get the details of particular campground
-- RESTFUL ROUTES
-    **name**    **url**             **verb**    **description**
-    ========================================================================
-    INDEX       /campgrounds        GET         Display List of grounds
-    NEW         /campgrounds/new    GET         Display form to add ground
-    CREATE      /campgrounds        POST        Add new ground to DB
-    SHOW        /campgrounds/:id    GET         Display ground details by id
+- Added Restful Routes
+
+#### RESTFUL ROUTES
+
+**name**    **url**             **verb**   **description**
+=======================================================================
+INDEX       /campgrounds        GET         DisplayList of grounds
+NEW         /campgrounds/new    GET         Displayform to add ground
+CREATE      /campgrounds        POST        Add newground to DB
+SHOW        /campgrounds/:id    GET         Displayground details by id
 
 
 
