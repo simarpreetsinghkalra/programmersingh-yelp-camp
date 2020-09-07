@@ -22,7 +22,7 @@ LIVE DEMO: https://programmersingh-yelp-camp.herokuapp.com/
 - Configured MongoDB on my system
 - Tested it using TypeScript and ES6 in file _src/cats.ts_
 
-## DAY 3
+## DAY 3 (2020/09/07)
 - Added MongoDB suppport in YelpCamp Project
 - Added page Show Campground (campgrounds/:id) to get the details of particular campground
 - Added Restful Routes
