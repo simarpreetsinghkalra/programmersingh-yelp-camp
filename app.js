@@ -5,28 +5,63 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var path_1 = __importDefault(require("path"));
 var express_1 = __importDefault(require("express"));
+var mongoose_1 = __importDefault(require("mongoose"));
 var body_parser_1 = require("body-parser");
 var app = express_1.default();
 app.use(body_parser_1.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.set('views', path_1.default.join(__dirname, 'views'));
-var campgrounds = [
-    { name: 'jammu Kashmir', image: 'https://api.creativecommons.engineering/v1/thumbs/6fc611d6-033b-4332-86d4-c9cd2d070772' },
-    { name: 'Shimla', image: 'https://api.creativecommons.engineering/v1/thumbs/cb1b3449-6af7-4bb7-9ad3-411eae0ef769' },
-    { name: 'Solan', image: 'https://api.creativecommons.engineering/v1/thumbs/717d0a63-1e57-4769-96fc-8b317f3a9dbf' }
-];
+mongoose_1.default.connect('mongodb://localhost/yelp_camp');
+var campGroundSchema = new mongoose_1.default.Schema({
+    name: String,
+    image: String,
+    description: String,
+});
+var CampGround = mongoose_1.default.model('Campground', campGroundSchema);
 app.get('/', function (req, res) {
     res.render('home');
 });
+// SHOW - shows more info about campgrounds
 app.get('/campgrounds', function (req, res) {
-    res.render('campgrounds', { campgrounds: campgrounds });
+    // Get camppgrounds from DB
+    CampGround.find({}, function (err, allCampgrounds) {
+        if (err) {
+            console.log('ERROR!', err);
+        }
+        else {
+            res.render('index', { campgrounds: allCampgrounds });
+        }
+    });
 });
 app.post('/campgrounds', function (req, res) {
-    campgrounds.push({ name: req.body.name, image: req.body.image });
-    res.redirect('/campgrounds');
+    // Create new campground and save it to DB
+    CampGround.create({
+        name: req.body.name,
+        image: req.body.image,
+        description: req.body.description
+    }, function (err, campground) {
+        if (err) {
+            console.log('ERROR!', err);
+        }
+        else {
+            console.log('CampGround Added!');
+            res.redirect('/campgrounds');
+        }
+    });
 });
 app.get('/campgrounds/new', function (req, res) {
     res.render('new.ejs');
+});
+app.get('/campgrounds/:id', function (req, res) {
+    // Find campground by id
+    CampGround.findById(req.params.id, function (err, foudCampground) {
+        if (err) {
+            console.log('ERROR!', err);
+        }
+        else {
+            res.render('show', { ground: foudCampground });
+        }
+    });
 });
 app.listen(process.env.PORT || 3000, function () {
     console.log('Server is up on http://localhost:3000/');
