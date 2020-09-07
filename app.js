@@ -7,11 +7,12 @@ var path_1 = __importDefault(require("path"));
 var express_1 = __importDefault(require("express"));
 var mongoose_1 = __importDefault(require("mongoose"));
 var body_parser_1 = require("body-parser");
+var env_1 = require("./env");
 var app = express_1.default();
 app.use(body_parser_1.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.set('views', path_1.default.join(__dirname, 'views'));
-mongoose_1.default.connect('mongodb://localhost/yelp_camp');
+mongoose_1.default.connect(env_1.envVars.databaseUrl);
 var campGroundSchema = new mongoose_1.default.Schema({
     name: String,
     image: String,

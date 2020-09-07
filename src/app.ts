@@ -1,8 +1,9 @@
 import path from 'path';
 import express from 'express';
 import mongoose from 'mongoose';
-
 import { urlencoded } from 'body-parser';
+
+import { envVars } from './env';
 
 var app = express();
 app.use(urlencoded({ extended: true }));
@@ -10,7 +11,7 @@ app.use(urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-mongoose.connect('mongodb://localhost/yelp_camp');
+mongoose.connect(envVars.databaseUrl);
 
 let campGroundSchema = new mongoose.Schema({
     name: String,
