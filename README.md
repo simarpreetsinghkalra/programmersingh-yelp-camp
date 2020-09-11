@@ -36,6 +36,9 @@ LIVE DEMO: https://programmersingh-yelp-camp.herokuapp.com/
 |CREATE     |/campgrounds       |POST       |Add newground to DB        |
 |SHOW       |/campgrounds/:id   |GET        |Displayground details by id|
 
+## DAY 4/5 (2020/09/08 - 2020/09/9)
+Whole work bout RESTful Routing in Repo https://github.com/simarpreetsighkalra/programmersingh-blogsite
+
 
 
 PS. I am not concentrating on design right now.
