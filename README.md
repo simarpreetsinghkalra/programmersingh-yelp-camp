@@ -43,6 +43,8 @@ Whole work bout RESTful Routing in Repo https://github.com/simarpreetsighkalra/p
 - Studied in MongoDB and how they are achieved (by Embedding data and Refernecing data.)
 - Studied about **Data Models** for MongoDB and implemented it in this project for campground using TypeScript. _(src/models/mongo-mdels.ts)_
 
-
+## DAY 7 (2020/09/11)
+- Tried making **association** of _Campgrounds_ and _Comments_ by **Referencing** comment schema into campground.
+- Added a seed script _(/src/seed.ts)_ to delete all data and autogenerate some data for testing, whenever I restart the server.
 
 PS. I am not concentrating on design right now.

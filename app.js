@@ -8,24 +8,23 @@ var express_1 = __importDefault(require("express"));
 var mongoose_1 = __importDefault(require("mongoose"));
 var body_parser_1 = require("body-parser");
 var env_1 = require("./env");
+// import models for MongoDB
+var mongo_models_1 = require("./models/mongo-models");
+//import seedDB function from seed.ts
+var seeds_1 = require("./seeds");
+seeds_1.seedDB();
 var app = express_1.default();
 app.use(body_parser_1.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.set('views', path_1.default.join(__dirname, 'views'));
 mongoose_1.default.connect(env_1.envVars.databaseUrl);
-var campGroundSchema = new mongoose_1.default.Schema({
-    name: String,
-    image: String,
-    description: String,
-});
-var CampGround = mongoose_1.default.model('Campground', campGroundSchema);
 app.get('/', function (req, res) {
     res.render('home');
 });
 // SHOW - shows more info about campgrounds
 app.get('/campgrounds', function (req, res) {
     // Get camppgrounds from DB
-    CampGround.find({}, function (err, allCampgrounds) {
+    mongo_models_1.CampGround.find({}, function (err, allCampgrounds) {
         if (err) {
             console.log('ERROR!', err);
         }
@@ -36,7 +35,7 @@ app.get('/campgrounds', function (req, res) {
 });
 app.post('/campgrounds', function (req, res) {
     // Create new campground and save it to DB
-    CampGround.create({
+    mongo_models_1.CampGround.create({
         name: req.body.name,
         image: req.body.image,
         description: req.body.description
@@ -55,11 +54,12 @@ app.get('/campgrounds/new', function (req, res) {
 });
 app.get('/campgrounds/:id', function (req, res) {
     // Find campground by id
-    CampGround.findById(req.params.id, function (err, foudCampground) {
+    mongo_models_1.CampGround.findById(req.params.id).populate('comments').exec(function (err, foudCampground) {
         if (err) {
             console.log('ERROR!', err);
         }
         else {
+            console.log(foudCampground);
             res.render('show', { ground: foudCampground });
         }
     });

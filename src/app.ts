@@ -8,6 +8,9 @@ import { envVars } from './env';
 // import models for MongoDB
 import { CampGround } from './models/mongo-models';
 
+//import seedDB function from seed.ts
+import { seedDB } from './seeds';
+
 var app = express();
 app.use(urlencoded({ extended: true }));
 
@@ -15,6 +18,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 mongoose.connect(envVars.databaseUrl);
+seedDB();
 
 
 
@@ -56,10 +60,11 @@ app.get('/campgrounds/new', (req, res) => {
 
 app.get('/campgrounds/:id', (req, res) => {
     // Find campground by id
-    CampGround.findById(req.params.id, (err, foudCampground) => {
+    CampGround.findById(req.params.id).populate('comments').exec((err, foudCampground) => {
         if (err) {
             console.log('ERROR!', err);
         } else {
+            console.log(foudCampground);
             res.render('show', {ground: foudCampground});
         }
     });

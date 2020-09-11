@@ -3,5 +3,10 @@
 <h1><%= ground.name %></h1>
 <img src="<%= ground.image%>" />
 <p><%= ground.description %></p>
+<% ground.comments.forEach((comment) => { %> 
+    <p>
+        <strong><%= comment.author %></strong> - <%= comment.text %>
+    </p>
+<% }) %> 
 
 <%- include('partials/footer'); -%>
