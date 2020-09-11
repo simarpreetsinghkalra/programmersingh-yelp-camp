@@ -39,6 +39,10 @@ LIVE DEMO: https://programmersingh-yelp-camp.herokuapp.com/
 ## DAY 4/5 (2020/09/08 - 2020/09/9)
 Whole work bout RESTful Routing in Repo https://github.com/simarpreetsighkalra/programmersingh-blogsite
 
+## DAY 6 (2020/09/10)
+- Studied in MongoDB and how they are achieved (by Embedding data and Refernecing data.)
+- Studied about **Data Models** for MongoDB and implemented it in this project for campground using TypeScript. _(src/models/mongo-mdels.ts)_
+
 
 
 PS. I am not concentrating on design right now.

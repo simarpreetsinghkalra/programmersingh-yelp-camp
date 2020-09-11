@@ -5,6 +5,9 @@ import { urlencoded } from 'body-parser';
 
 import { envVars } from './env';
 
+// import models for MongoDB
+import { CampGround } from './models/mongo-models';
+
 var app = express();
 app.use(urlencoded({ extended: true }));
 
@@ -13,13 +16,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 mongoose.connect(envVars.databaseUrl);
 
-let campGroundSchema = new mongoose.Schema({
-    name: String,
-    image: String,
-    description: String,
-});
 
-let CampGround = mongoose.model('Campground', campGroundSchema);
 
 app.get('/', (req, res) => {
     res.render('home');
