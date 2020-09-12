@@ -1,6 +1,7 @@
-import mongoose from 'mongoose';
+import { IUser, IComment } from './models';
+import mongoose, { Schema } from 'mongoose';
 
-const campGroundSchema = new mongoose.Schema({
+const campGroundSchema: Schema = new Schema({
     name: String,
     image: String,
     description: String,
@@ -10,15 +11,16 @@ const campGroundSchema = new mongoose.Schema({
     }]
 });
 
-const CampGround = mongoose.model('Campground', campGroundSchema);
+
+const CampGround = mongoose.model<IUser>('Campground', campGroundSchema);
 
 
-const commentSchema = new mongoose.Schema({
+const commentSchema: Schema = new Schema({
     text: String,
     author: String,
 });
 
-const Comment = mongoose.model('Comment', commentSchema);
+const Comment = mongoose.model<IComment>('Comment', commentSchema);
 export {
     CampGround,
     Comment

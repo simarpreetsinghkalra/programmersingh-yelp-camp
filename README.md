@@ -47,4 +47,19 @@ Whole work bout RESTful Routing in Repo https://github.com/simarpreetsighkalra/p
 - Tried making **association** of _Campgrounds_ and _Comments_ by **Referencing** comment schema into campground.
 - Added a seed script _(/src/seed.ts)_ to delete all data and autogenerate some data for testing, whenever I restart the server.
 
+## DAY 8 (2020/09/12)
+- Did some research and changed process of using Mongoose with TypeScript to new one. Added new file _src/models/models.ts_ which will contain data models being used by me.
+- Added RESTful Routes for Comments on Campgrounds.
+- Also implemented the concept of **Nested Routes** in support of previous point.
+- Moved campground related .ejs file to _/views/campgrounds/_ and added comments related files to _/views/comments/_ directories.
+- Completed the Add New Comment functionality.
+- Added some design to improve the looks of front end.
+ 
+ #### RESTFUL ROUTES ADDED
+
+|name       |url                        |verb       |description                |
+|-----------|---------------------------|-----------|---------------------------|
+|NEW        |/campgrounds/:id/comments  |GET        |Displayform to add ground  |
+|CREATE     |/campgrounds/:id/comments  |POST       |Add newground to DB        |
+
 PS. I am not concentrating on design right now.
